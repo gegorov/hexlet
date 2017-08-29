@@ -3,30 +3,40 @@ import { l, cons, head, tail, isEmpty, toString as listToString } from 'hexlet-p
 
 // BEGIN (write your solution here)
 const has = (list, element) => {
+  if (isEmpty(list)) {
+    return false;
+  }
   if (head(list) === element) {
     return true;
   }
-  let newList = tail(list);
-  while (!isEmpty(newList)) {
-    if (head(newList) === element) {
-      return true;
-    }
-    newList = tail(newList);
-  }
-  return false;
+  return has(tail(list), element);
+  // let newList = tail(list);
+  // while (!isEmpty(newList)) {
+  //   if (head(newList) === element) {
+  //     return true;
+  //   }
+  //   newList = tail(newList);
+  // }
+  // return false;
 };
 
+// const reverse = (list) => {
+//   if (isEmpty(list)) {
+//     return l();
+//   }
+//   let newList = l(head(list));
+//   let list1 = tail(list);
+//   while (!isEmpty(list1)) {
+//     newList = cons(head(list1), newList);
+//     list1 = tail(list1);
+//   }
+//   return newList;
+// };
+
 const reverse = (list) => {
-  if (isEmpty(list)) {
-    return l();
-  }
-  let newList = l(head(list));
-  let list1 = tail(list);
-  while (!isEmpty(list1)) {
-    newList = cons(head(list1), newList);
-    list1 = tail(list1);
-  }
-  return newList;
+  const iter = (items, acc) =>
+    (isEmpty(items) ? acc : iter(tail(items), cons(head(items), acc)));
+  return iter(list, l());
 };
 
 const concat = (list1, list2) => {
