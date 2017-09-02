@@ -14,7 +14,20 @@
     ((or (= n m) (= n 1) (= m 1)) 1)
     ((+ (pascal-triangle (- n 1) (- m 1))
         (pascal-triangle (- n 1) m)))))
-    
+
+;ниже решение через формулу сочетаний
+; (define (iFact n)
+;   (define (iter accum counter)
+;     (if (< n counter)
+;       accum
+;       (iter (* accum counter)
+;             (+ counter 1))))
+;   (iter 1 1))
+; (define (pascal-triangle n m)
+;     (/ (iFact (- n 1))
+;       (* (iFact(- m 1)) (iFact (- (- n 1) (- m 1))))
+;       )
+;   )
 
 ;; END
 
