@@ -87,3 +87,31 @@
     ((= kinds-of-coins 3) 10)
     ((= kinds-of-coins 4) 25)
     ((= kinds-of-coins 5) 50)))
+
+; возведение в степень
+; рекурсивный метод
+(define (pow b n)
+  (if
+    (= n 0)
+    1
+    (* b (pow b (- n 1)))))
+
+; итеративный метод
+(define (ipow b n)
+  (define (pow_iter counter product)
+    (if (= counter 0)
+      product
+      (pow_iter (- counter 1) (* b product))))
+  (pow_iter n 1))
+
+; быстрый метод возведения в степень
+
+(define (fast-exp b n)
+  (define (even? x)
+    (= (remainder n 2) 0))
+  (define (square x)
+    (* x x))
+  (cond
+    ((= n 0) 1)
+    ((even? n) (square (fast-exp b (/ n 2))))
+    (else (* b (fast-exp b (- n 1))))))

@@ -1,0 +1,16 @@
+; Упражнение 1.18
+
+(define (f* a b)
+  (define (iter product a b)
+    (if (= b 1)
+      (+ a product)
+      (if (even? b)
+        (iter product (double a) (halve b))
+        (iter (+ product a) a (- b 1)))))
+  (define (even? a)
+    (= (remainder a 2) 0))
+  (define (double a)
+    (+ a a))
+  (define (halve a)
+    (/ a 2))
+  (iter 0 a b))
