@@ -60,6 +60,7 @@
 // four(x => x + 1)(0); // 4
 
 // BEGIN (write your solution here)
+// eslint-disable-next-line
 export const Zero = f => x => x;
 export const Succ = n => (f => x => f(n(f)(x)));
 // END

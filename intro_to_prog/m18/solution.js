@@ -1,6 +1,7 @@
 /*
 solution.js
-Реализуйте и экспортируйте по умолчанию функцию, которая делает заглавной первую букву каждого слова в предложении.
+Реализуйте и экспортируйте по умолчанию функцию, которая делает заглавной
+первую букву каждого слова в предложении.
 
 solution('hello, world!'); // Hello, World!
 Подсказки
@@ -18,7 +19,7 @@ const toUpp = (string) => {
   } else {
     result += string[0];
   }
-  for (let i = 1; i < length(string); i++) {
+  for (let i = 1; i < length(string); i += 1) {
     if (string[i] !== ' ' && string[i - 1] === ' ') {
       result += toUpperCase(string[i]);
     } else {
