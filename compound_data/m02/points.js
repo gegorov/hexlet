@@ -24,5 +24,4 @@ export const distance = (point1, point2) => {
   const dY = getY(point2) - getY(point1);
   return Math.sqrt((dX ** 2) + (dY ** 2));
 };
-
 // END
