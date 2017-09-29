@@ -15,7 +15,7 @@ const perimeter = rectangle => 2 * (width(rectangle) + height(rectangle));
 const containsTheOrigin = (rectangle) => {
   const secondPoint = makePoint(
     (getX(startPoint(rectangle)) + width(rectangle)),
-    (getY(startPoint(rectangle)) - height(rectangle))
+    (getY(startPoint(rectangle)) - height(rectangle)),
   );
 
   if (quadrant(startPoint(rectangle)) === 2 && quadrant(secondPoint) === 4) {
