@@ -12,13 +12,11 @@ const head = (list) => {
   return result.toString();
 };
 
-const tail = (list) => {
+// const tail = list => false;
 
-};
+// const toString = (list) => {
+//   return list.toString();
+// };
 
-const toString = (list) => {
-  return list.toString();
-};
-
-export { l, head, tail, toString };
+export { l, head, toString };
 // END
