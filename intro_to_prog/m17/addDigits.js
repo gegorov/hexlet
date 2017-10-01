@@ -1,8 +1,10 @@
 /*
 addDigits.js
-Реализуйте и экспортируйте по умолчанию функцию addDigits, которая работает следующим образом:
+Реализуйте и экспортируйте по умолчанию функцию addDigits, которая работает
+следующим образом:
 
-Дано неотрицательное целое число num. Складывать все входящие в него цифры до тех пор, пока не останется одна цифра.
+Дано неотрицательное целое число num. Складывать все входящие в него цифры до
+тех пор, пока не останется одна цифра.
 
 Для числа 38 процесс будет выглядеть так:
 
@@ -23,8 +25,9 @@ addDigits(1259); // 8
 import { length } from './strings';
 
 // BEGIN (write your solution here)
-const sum = (num) => {
+const sum = (number) => {
   let result = 0;
+  let num = number;
   while (num > 0) {
     result += num % 10;
     num = Math.floor(num / 10);
@@ -32,8 +35,9 @@ const sum = (num) => {
   return result;
 };
 
-const addDigits = (num) => {
+const addDigits = (number) => {
   let result = 0;
+  let num = number;
   while (num > 9) {
     num = sum(num);
   }
