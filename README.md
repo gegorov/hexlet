@@ -1,2 +1,2 @@
 # hexlet
-# this repositriy is used to store my tasks from hexlet
+# this repository is used to store my tasks from hexlet
