@@ -55,22 +55,28 @@ class Enumerable {
   // END
 
   // BEGIN (write your solution here)
-  orderBy(fn, direction = 'asc') {
-    const comparator = (a, b) => {
-      const a1 = fn(a);
-      const b1 = fn(b);
-
-      const compareResult = direction === 'asc' ? 1 : -1;
-
-      if (a1 > b1) {
-        return compareResult;
-      } else if (a1 < b1) {
-        return -compareResult;
+  orderBy(fn, compare = 'asc') {
+    if (compare === 'desc') {
+      this.collection = this.collection.sort((a, b) => {
+        if (fn(a) < fn(b)) {
+          return 1;
+        }
+        if (fn(a) > fn(b)) {
+          return -1;
+        }
+        return 0;
+      });
+      return this;
+    }
+    this.collection = this.collection.sort((a, b) => {
+      if (fn(a) > fn(b)) {
+        return 1;
       }
-
+      if (fn(a) < fn(b)) {
+        return -1;
+      }
       return 0;
-    };
-    this.collection.sort(comparator);
+    });
     return this;
   }
   // END
