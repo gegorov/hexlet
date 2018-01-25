@@ -1,5 +1,6 @@
 /*
-Реализуйте и экспортируйте по умолчанию функцию invertCase, которая меняет в строке регистр каждой буквы на противоположный.
+Реализуйте и экспортируйте по умолчанию функцию invertCase, которая меняет в
+строке регистр каждой буквы на противоположный.
 
 invertCase('Hello, World!') // hELLO, wORLD!
 invertCase('I loVe JS') // i LOvE js
@@ -9,7 +10,7 @@ import { length, toUpperCase, toLowerCase } from './strings'; // eslint-disable-
 // BEGIN (write your solution here)
 export default (string) => {
   let result = '';
-  for (let i = 0; i < length(string); i++) {
+  for (let i = 0; i < length(string); i += 1) {
     if (string[i] === toUpperCase(string[i])) {
       result += toLowerCase(string[i]);
     } else {
