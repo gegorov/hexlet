@@ -59,12 +59,13 @@ class Enumerable {
   }
 
   where(...args) {
-    return args.map(
-      el =>
-        (
-          (typeof el === 'function') ? this.build(coll => coll.filter(el)) : this.build(coll => coll.filter()) // wtf
-        ),
-    );
+    const resultFnArr = args.map((arg) => {
+      if (typeof arg === 'function') {
+        return coll => coll.filter(arg);
+      }
+      return coll => coll.filter(obj => Object.keys(arg).every(key => arg[key] === obj[key]));
+    });
+    return this.build(resultFnArr);
   }
 
   get length() {
@@ -75,9 +76,24 @@ class Enumerable {
     if (!this.memo) {
       this.memo = this.operations.reduce((acc, func) => func(acc), this.collection);
     }
-
     return this.memo;
   }
 }
 
-export default Enumerable;
+const cars = [
+  { brand: 'bmw', model: 'm5', year: 2014 },
+  { brand: 'bmw', model: 'm4', year: 2013 },
+  { brand: 'kia', model: 'sorento', year: 2014 },
+  { brand: 'kia', model: 'rio', year: 2010 },
+  { brand: 'kia', model: 'sportage', year: 2012 },
+];
+const coll = new Enumerable(cars);
+const f1 = car => car.brand === 'kia';
+const f2 = car => car.year > 2011;
+const result2 = coll.where(f1, f2).toArray();
+
+// [
+//   { brand: 'bmw', model: 'm5', year: 2014 },
+//   { brand: 'bmw', model: 'm4', year: 2013 },
+// ]
+console.log(result2);
