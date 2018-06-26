@@ -55,7 +55,7 @@ const getCarsCountByYear = (arr) => {
 };
 
 const getCCBY2 = arr => arr.reduce(
-  (acc, { year }) => ({ ...acc, [year]: acc[year] ? acc[year] + 1 : 1 }), {}
+  (acc, { year }) => ({ ...acc, [year]: acc[year] ? acc[year] + 1 : 1 }), {},
 );
 
 console.log(getCarsCountByYear(cars));
