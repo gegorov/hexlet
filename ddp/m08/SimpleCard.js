@@ -4,6 +4,7 @@ export default class SimpleCard {
     this.name = name;
     this.dps = dps;
   }
+
   damage() {
     return this.dps;
   }
